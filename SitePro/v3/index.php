@@ -1,10 +1,11 @@
 <?php
     require_once("template_header.php");
-    require_once("template_menu.php");
     $currentPageId = 'accueil';
     if(isset($_GET['page'])) {
     $currentPageId = $_GET['page'];
     }
+    $lang = isset($_GET['lang']) ? $_GET['lang'] : 'fr';
+    require_once($lang."/template_menu.php");
 ?>
 
 <header class="bandeau_haut">
@@ -15,7 +16,7 @@
 ?>
 <section class="corps">
     <?php
-    $pageToInclude = $currentPageId . ".php";
+    $pageToInclude = $lang."/".$currentPageId . ".php";
     if(is_readable($pageToInclude))
     require_once($pageToInclude);
     else
@@ -23,6 +24,6 @@
     ?>
 </section>
 <?php
-    require_once("template_footer.php");
+    require_once($lang."/template_footer.php");
 ?>
 

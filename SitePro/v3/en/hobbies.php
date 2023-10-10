@@ -1,11 +1,11 @@
 <h2>My hobbies</h2>
 
-<h3>Le sport</h3>
-<p> J'ai fait du football pendant 10 ans. Désormais, je pratique le volleyball. Cependant, j'aime
-    de nombreux sports : j'ai regardé énormément de rugby, et j'ai essayé de noubreux divers sports tels que la course à pied ou le canoë-kayak.
+<h3>Sport</h3>
+<p> I played football for 10 years. I now play volleyball. However, I like
+    many sports: I watched a lot of rugby, and tried various sports such as running or canoeing.
 </p>
 
-<h3>Ma vie associative</h3>
-<p> Je suis impliqué dans la vie associative de mon école d'ingénieur. En effet,
-    je suis vice-trésorier du Gala 2024 de l'IMT Nord Europe. Je suis également dans un club d'art et dessin.
+<h3>My associative life</h3>
+<p> I am involved in the community life of my engineering school. Indeed,
+    I am vice-treasurer of the 2024 Gala of IMT Nord Europe. I am also in an art and drawing club.
 </p>
