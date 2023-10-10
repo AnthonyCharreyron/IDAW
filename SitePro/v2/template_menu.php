@@ -5,9 +5,16 @@ function renderMenuToHTML($currentPageId) {
     'cv' => array( 'Cv' ),
     'projets' => array('Mes Projets')
     );
-    foreach($mymenu as $pageId => $pageParameters) {
-    echo "...";
-}
-// ...
+    echo '<nav class="menu"><ul>';
+        foreach($mymenu as $pageId => $pageParameters) {
+            echo '<li>';
+            if ($currentPageId == $pageId) {
+                echo '<a id="currentpage" href="'.$pageId.'.php">'.$pageParameters[0].'</a>';
+            } else {
+                echo '<a href="'.$pageId.'.php">'.$pageParameters[0].'</a>';
+            }
+            echo '</li>';
+        }
+    echo '</ul></nav>';
 }
 ?>

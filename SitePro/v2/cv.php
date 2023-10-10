@@ -2,13 +2,10 @@
     require_once('template_header.php');
 ?>
     <h1>CV</h1>
-    <nav class="menu">
-        <ul>
-            <li><a href="index.php">Accueil</a></li>
-            <li><a id="currentpage" href="cv.php">CV</a></li>
-             <li><a href="projets.php">Projets</a></li>
-        </ul>
-    </nav>
+    <?php
+            require_once('template_menu.php');
+            renderMenuToHTML('cv');
+        ?>
 
     <h2>Mon CV</h2>
     <img src="PhotoProfil.jpeg" width="175" height="200" alt="PhotoCv">

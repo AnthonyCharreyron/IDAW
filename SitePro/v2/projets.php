@@ -2,13 +2,10 @@
     require_once('template_header.php');
 ?>
         <h1>Mes projets</h1>
-        <nav class="menu">
-            <ul>
-                <li><a href="index.php">Accueil</a></li>
-                <li><a href="cv.php">Cv</a></li>
-                <li><a id="currentpage" href="projets.php">Projets</a></li>
-            </ul>
-        </nav>
+        <?php
+            require_once('template_menu.php');
+            renderMenuToHTML('projets');
+        ?>
         <h3>Mes différents projets</h3>
 
         <h4>Création de site web</h4>
