@@ -29,7 +29,6 @@
     <p>Gestion de projet</p>
     <p>Management</p>
 
-    <h3>CV sous format pdf</h3>
     <?php
         require_once('template_footer.php');
 ?>
