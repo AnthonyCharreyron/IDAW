@@ -10,7 +10,7 @@ h2 {
 }
 
 body {
-    background-color: rgb(245, 221, 178);
+    background-color: lightgray;
 }
 
 h3{
@@ -38,6 +38,11 @@ p {
     text-indent: 40px;
 }
 
+ul {
+    list-style-type: none;
+    display: flex;
+  }
+
 #currentpage {
     background-color: #7a9cec; 
     }
@@ -49,10 +54,10 @@ nav a {
     text-align:center;
     margin-top: 2px;
     margin-bottom: 2px;
-    width: 80px;
+    width: 150px;
     display: block;
     color:black;
-    background-color: rgb(38, 0, 251);
+    background-color: rgb(38, 0, 251); 
 }
 
 nav a:hover {
