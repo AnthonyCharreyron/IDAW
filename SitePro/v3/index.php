@@ -24,6 +24,6 @@
     ?>
 </section>
 <?php
-    require_once($lang."/template_footer.php");
+    require_once("template_footer.php");
 ?>
 
