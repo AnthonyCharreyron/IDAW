@@ -1,12 +1,20 @@
+<?php
+    $selectedStyle='style1';
+    if(isset($_COOKIE['style'])){
+        $selectedStyle=$_COOKIE['style'];
+    }
+    if(isset($_GET['css'])){
+        $selectedStyle = $_GET["css"];
+        setcookie('style', $selectedStyle, time() + 3600, '/');
+    }
+?>
+
 <!doctype html>
 <html>
     <head>
+        <meta charset="utf-8">
         <?php
-            $selectedStyle='style1';
-            if(isset($_COOKIE['style'])){
-                $selectedStyle=$_COOKIE['style'];
-                echo '<link rel="stylesheet" type="text/css" href="'.$selectedStyle.'.css">';
-            }
+            echo '<link rel="stylesheet" type="text/css" href="'.$selectedStyle.'.css">';
         ?>
     </head>
     <body>
@@ -17,11 +25,5 @@
             </select>
             <input type="submit" value="Appliquer" />
         </form>
-        <?php 
-            if(isset($_GET['css'])){
-                $selectedStyle = $_GET["css"];
-                setcookie('style', $selectedStyle, time() + 3600, '/');
-            }
-        ?>
     </body>
 </html>

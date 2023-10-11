@@ -1,9 +1,21 @@
+<?php
+    session_start();
+    $selectedPage='accueil.html';
+    if(isset($_SESSION['page'])){
+        $selectedPage=$_SESSION['page'];
+    }
+    if
+?>
 <!doctype html>
-<html>
+<html>  
     <head>
-        <meta charset="utf-8">
+        <?php
+            echo '<a href="'.$selectedPage.'"></a>';
+        ?>
     </head>
     <body>
+        <?php if(!isset($_SESSION['page'])){      
+        echo'
         <form id="login_form" action="connected.php" method="POST">
             <table>
                 <tr>
@@ -17,8 +29,13 @@
                 <tr>
                 <th></th>
                 <td><input type="submit" value="Se connecter..." /></td>
-                </tr>
+                   </tr>
             </table>
-        </form>
-    </body> 
+        </form>';}
+        ?>
+        <p>Lorem ipsum</p>
+        <?php
+
+        ?>
+    </body>
 </html>
