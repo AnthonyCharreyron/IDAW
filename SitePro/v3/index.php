@@ -5,14 +5,14 @@
     $currentPageId = $_GET['page'];
     }
     $lang = isset($_GET['lang']) ? $_GET['lang'] : 'fr';
-    require_once($lang."/template_menu.php");
+    require_once("template_menu.php");
 ?>
 
 <header class="bandeau_haut">
     <h1 class="titre">Anthony Charreyron</h1>
 </header>
 <?php
-    renderMenuToHTML($currentPageId);
+    renderMenuToHTML($currentPageId, $lang);
 ?>
 <section class="corps">
     <?php
