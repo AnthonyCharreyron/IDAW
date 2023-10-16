@@ -2,9 +2,11 @@
     require_once('config.php');
 
     $modif=false;
-    if (isset($_POST['change']) && isset($_POST['id'])){
+    if (isset($_POST['change']) && isset($_POST['id']) && isset($_POST['nom']) && isset($_POST['mail'])){
         $modif=$_POST['change'];
         $identication=$_POST['id'];
+        $nom=$_POST['nom'];
+        $mail=$_POST['mail'];
     }
 
     $connectionString = "mysql:host=". _MYSQL_HOST;
@@ -40,9 +42,19 @@
                         $id=$key;
                     }
                     ?>
+                    <?php if ($personne=='name'){
+                        $nom=$key;
+                    }
+                    ?>
+                    <?php if ($personne=='email'){
+                        $mail=$key;
+                    }
+                    ?>
                 <?php endforeach; ?>
                     <form id="modifyUser" action="users.php" method="POST">
                         <input type="hidden" name="id" value="<?php echo $id?>">
+                        <input type="hidden" name="nom" value="<?php echo $nom?>">
+                        <input type="hidden" name="mail" value="<?php echo $mail?>">
                         <input type="hidden" name="change" value="true">
                         <td><input type="submit" value="Modify" /></td>
                     </form>
@@ -77,11 +89,11 @@
                     <input type="hidden" name="id" value="<?php echo $identication?>">
                     <tr>
                         <th>Name :</th>
-                    <td><input type="text" name="name"></td>
+                    <td><input type="text" name="name" value="<?php echo $nom?>"></td>
                     </tr>
                     <tr>
                         <th>email :</th>
-                        <td><input type="text" name="email"></td>
+                        <td><input type="text" name="email" value="<?php echo $mail?>"></td>
                     </tr>
                     <tr>
                     <th></th>
