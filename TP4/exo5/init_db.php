@@ -17,10 +17,24 @@
     
     function create_user($name, $mail){
         global $pdo;
+
         $request = $pdo->prepare('INSERT INTO `users` (`id`, `name`, `email`) VALUES (NULL, :name, :email);');
         $request->bindParam(':name', $name, PDO::PARAM_STR);
-        $request->bindParam(':email', $email, PDO::PARAM_STR);
+        $request->bindParam(':email', $mail, PDO::PARAM_STR);
         $request->execute();
+        
+        return ['id'=> $pdo -> lastInsertId()];
+    }
+
+    function update_user($id, $name, $email){
+        global $pdo;
+        $request = $pdo->prepare('UPDATE `users` SET `name`= :name, `email`= :email WHERE `users`.`id` = :id');
+        $request->bindParam(':name', $name, PDO::PARAM_STR);
+        $request->bindParam(':email', $email, PDO::PARAM_STR);
+        $request->bindParam(':id', $id, PDO::PARAM_STR);
+        $request->execute();
+
+        return ['name'=> $name, 'email' => $email];
     }
 
     function get_users($request){
@@ -29,8 +43,5 @@
         $request->execute();
         $result = $request->fetchAll(PDO::FETCH_OBJ);
         return $result;
-    }
-    // function http_response_code($value){
-    // }
-    
+    }    
 ?>
