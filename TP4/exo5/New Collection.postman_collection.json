@@ -1,0 +1,173 @@
+{
+	"info": {
+		"_postman_id": "603e956a-63b6-442b-975d-4db66e53e13b",
+		"name": "New Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30554097"
+	},
+	"item": [
+		{
+			"name": "create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "thomas",
+							"type": "text"
+						},
+						{
+							"key": "mail",
+							"value": "maildethomas@gmaid.com",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/IDAW/TP4/exo5/users.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"IDAW",
+						"TP4",
+						"exo5",
+						"users.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "read users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/IDAW/TP4/exo5/users.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"IDAW",
+						"TP4",
+						"exo5",
+						"users.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "id",
+							"value": "26",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "Thomas",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "thomas@gmail.com",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/IDAW/TP4/exo5/users.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"IDAW",
+						"TP4",
+						"exo5",
+						"users.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "id",
+							"value": "26",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/IDAW/TP4/exo5/users.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"IDAW",
+						"TP4",
+						"exo5",
+						"users.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "read user",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "id",
+							"value": "26",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/IDAW/TP4/exo5/users.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"IDAW",
+						"TP4",
+						"exo5",
+						"users.php"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

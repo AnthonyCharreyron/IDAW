@@ -37,6 +37,23 @@
         return ['name'=> $name, 'email' => $email];
     }
 
+    function delete_user($id){
+        global $pdo;
+        $request = $pdo->prepare("DELETE FROM `users` WHERE  id=?");
+        $request->execute([$id]);
+
+        return $request->rowCount()>0;
+    }
+
+    function read_user($id){
+        global $pdo;
+        $request = $pdo->prepare("select id, name, email from users WHERE id=?");
+        $request->execute([$id]);
+        $result = $request->fetchAll(PDO::FETCH_OBJ);
+
+        return $result;
+    }
+
     function get_users($request){
         global $pdo;
         $request = $pdo->prepare("select * from users");
