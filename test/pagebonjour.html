@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Cours JavaScript</title>
+        <meta charset="utf-8">
+        <meta name="viewport"
+          content="width=device-width, initial-scale=1, user-scalable=no">
+        <link rel="stylesheet" href="cours.css">
+    </head>
+    
+    <body>
+        <h1>Titre principal</h1>
+        <button onclick="alert('Bonjour !')">Cliquez moi</button>
+        
+        <button onclick="(function(){
+            let para = document.createElement('p');
+            para.textContent = 'Paragraphe ajouté';
+            document.body.appendChild(para);
+        })();">
+            Ajouter un paragraphe
+        </button>
+    </body>
+</html>
