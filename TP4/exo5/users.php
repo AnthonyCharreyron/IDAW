@@ -9,6 +9,7 @@
                 $id = $get_data['id'];
                 $read_user = read_user($id);
                 if ($read_user) {
+                    //header("Access-Control-Allow-Origin:*");
                     header('Content-type: application/json');
                     http_response_code(200);
                     exit(json_encode($read_user));
@@ -26,14 +27,20 @@
             }
             
         case 'POST':
-            $name=$_POST['name'];
-            $mail=$_POST['mail'];
-            $user=create_user($name, $mail);
+            parse_str(file_get_contents("php://input"),$put_data);
+            if (isset($put_data['name']) && isset($put_data['mail'])){
+                $name=$put_data['name'];
+                $mail=$put_data['mail'];
+                $user=create_user($name, $mail);
+                http_response_code(201);
+                header('Content-type: application/json');
+                exit(json_encode($user));
+            }
+            else {
+                http_response_code(500);
+                exit(json_encode(["message"=>"Erreur lors de la mise à jour de l'utilisateur."]));
+            }
             
-            http_response_code(201);
-            header('Content-type: application/json');
-            exit(json_encode($user));
-
         case 'PUT':    
             parse_str(file_get_contents("php://input"),$put_data);
 
@@ -73,7 +80,8 @@
             }
             else {
                 http_response_code(400);
-                echo json_encode(["message" => "Paramètres invalides lors de la saisie"]);
+                exit(json_encode(["message" => "Paramètres invalides lors de la saisie"]));
             }
-        break;
+        default:
+            http_response_code(501);
     }
