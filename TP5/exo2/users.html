@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="fr">
+    <head>
+        <meta charset='utf-8'>
+        <script src="//cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+        <title>Anthony</title>
+        <link rel="stylesheet" href="//cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    </head>
+    <body>
+        <script>let table = new DataTable('#myTable')</script>
+
+        <form id="addUserForm" action="" onsubmit="onFormSubmit();">
+            <div class="form-group row">
+                <label for="inputNom" class="col-sm-2 col-form-label">Nom</label>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control" id="inputNom" required>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control" id="inputEmail" >
+                </div>
+            </div>
+            <div class="form-group row">
+                <span class="col-sm-2"></span>
+                <div class="col-sm-2">
+                    <button type="submit" class="btn btn-primary form-control">Ajouter</button>
+                </div>
+            </div>
+        </form>
+    </body>
