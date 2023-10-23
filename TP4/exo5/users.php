@@ -27,11 +27,10 @@
             }
             
         case 'POST':
-            parse_str(file_get_contents("php://input"),$put_data);
-            if (isset($put_data['name']) && isset($put_data['mail'])){
-                $name=$put_data['name'];
-                $mail=$put_data['mail'];
+                $name=$_POST['name'];
+                $mail=$_POST['email'];
                 $user=create_user($name, $mail);
+            if ($user != null){
                 http_response_code(201);
                 header('Content-type: application/json');
                 exit(json_encode($user));
@@ -63,25 +62,19 @@
         
         case 'DELETE':    
             parse_str(file_get_contents("php://input"),$delete_data);
+            $id = $delete_data['id'];
+            $del_user = delete_user($id);
     
-            if (isset($delete_data['id'])) {
-                    $id = $delete_data['id'];
-                    $del_user = delete_user($id);
-    
-                    if ($del_user) {
-                        http_response_code(201);
-                        header('Content-type: application/json');
-                        exit(json_encode(["message"=>"Supprimé avec succès"]));
-                    }
-                    else {
-                        http_response_code(404);
-                        exit(json_encode(["message"=>"Erreur lors de la mise à jour de l'utilisateur."]));
-                    }
+            if ($del_user) {
+                http_response_code(201);
+                header('Content-type: application/json');
+                exit(json_encode(["message"=>"Supprimé avec succès"]));
             }
             else {
-                http_response_code(400);
-                exit(json_encode(["message" => "Paramètres invalides lors de la saisie"]));
+                http_response_code(404);
+                exit(json_encode(["message"=>"Erreur lors de la mise à jour de l'utilisateur."]));
             }
+            
         default:
             http_response_code(501);
     }

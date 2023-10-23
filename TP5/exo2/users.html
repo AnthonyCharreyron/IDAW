@@ -38,7 +38,7 @@
             <div class="form-group row">
                 <span class="col-sm-2"></span>
                 <div class="col-sm-2">
-                    <button type="submit" id="submitBtn" class="btn btn-primary form-control">Ajouter</button>
+                    <button type="button" id="submitBtn" class="btn btn-primary form-control">Ajouter</button>
                 </div>
             </div>
         </form>
@@ -58,7 +58,7 @@
                             render: function (data, type, row) {
                                 return `
                                 <button type="button" class="btn btn-primary" onclick="modifyRow(${row.id})">Modify</button>
-                                <button type="button" class="btn btn-danger" onclick="deleteRow(${row.id})" data-action="delete">Delete</button>
+                                <button type="button" class="btn btn-danger" onclick="deleteRow(${row.id})" data-id="${row.id}">Delete</button>
                                 `;
                             }
                         }
@@ -70,30 +70,42 @@
                     let email = $('#inputEmail').val();
 
                     $.ajax({
-                        url: 'http://localhost/IDAW/TP4/exo5/users.php',
                         type: 'POST',
+                        url: 'http://localhost/IDAW/TP4/exo5/users.php',
                         data: { name: nom, email: email },
                         success: function (response) {
                             let newRow = `
                             <tr>
                                 <td>${response.id}</td>
-                                <td>${response.nom}</td>
+                                <td>${response.name}</td>
                                 <td>${response.email}</td>
                                 <td>
-                                <button type="button" class="btn btn-primary" onclick="modifyRow(${response.id})">Modify</button>
-                                <button type="button" class="btn btn-danger" onclick="deleteRow(${response.id})" data-action="delete">Delete</button>
+                                <button type="button" class="btn btn-primary" onclick="modifyRow(this)">Modify</button>
+                                <button type="button" class="btn btn-danger" onclick="deleteRow(${row.id})" data-id="${row.id}">Delete</button>
                                 </td>
                             </tr>
                             `;
-                            table.row.add($(newRow)).draw();
-                            $('#inputNom').val('');
-                            $('#inputEmail').val('');
+                            table.append($(newRow));
                         },
                         error: function (error) {
                             console.error("Erreur lors de l'ajout :", error);
                         }
                     });
                 });
+                function deleteRow(id) {
+                    $.ajax({
+                        type: 'DELETE',
+                        url: `http://localhost/IDAW/TP4/exo5/users.php`,
+                        data: id,
+                        success: function (data) {
+                            table.row($(`tr:has(button[data-id="id"])`)).remove().draw();
+                        },
+                        error: function (error) {
+                            console.error('Erreur lors de la suppression :', error);
+                        }
+                    });
+                }
+
         </script>
     </body>
     </html>
